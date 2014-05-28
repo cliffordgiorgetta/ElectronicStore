@@ -1,0 +1,17 @@
+﻿@model ElectronicStore.Models.Category
+@{
+    ViewBag.Title = "byCategory";
+}
+
+<h2>Browsing @Model.name Products</h2>
+
+<!-- breadcrumbs // calls the breadcrumbs action on the home controller
+    passing -->
+@Html.Action("breadcrumbs", "home", new{id = Model.categoriesID})
+
+
+
+@foreach (var product in Model.AllProducts)
+{
+    @Html.Partial("productListing", product)
+}

@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+  
+  
+<div id='cssmenu'>       
+<ul>
+<div style="float: right; margin-top: -1px;">@Html.TextBox("date", DateTime.Now)</div>
+    <br />
+    <br />
+    @if(Request.IsAuthenticated)
+    {
+        <div class="logout">
+          <h3>Hello, @User.Identity.Name</h3>
+            &nbsp;
+            <a class="button" href="@Url.Action("logout", "account", new { returnURL = Request.Url.LocalPath })">Logout</a>
+        </div>
+    }
+    else
+    {
+      
+        @Html.Partial("Login", new ElectronicStore.Models.login())
+       
+        
+    }
+
+    <br />
+    <br />
+    <br />
+   <li class="cssmenu"><a href='http://localhost:4387/'><img src="http://melissacanfield.com/wp-content/uploads/2014/03/home_icon_black_white_line_art_coloring_book_colouring-999px.png" border="0"  height="80" width="80" /></a>
+</a></li>
+   <li class='has-sub'><a href='http://localhost:4387/product'><span>Products</span></a>
+      <ul>
+         <li class='has-sub'><a href='http://localhost:4387/Shop/ByCategory/1'><span>TVs</span></a>
+            <ul>
+               <li><a href='http://localhost:4387/product/Details/7'><span>LCD</span></a></li>
+               <li><a href='http://localhost:4387/product/Details/8'><span>LED</span></a></li>
+                <li><a href="http://localhost:4387/product/Details/5"><span>Plasma</span></a></li>
+            </ul>
+        
+         </li>
+         <li class='has-sub'><a href='http://localhost:4387/Shop/ByCategory/7'><span>Computer</span></a>
+            <ul>
+               <li><a href='http://localhost:4387/product/Details/3'><span>Desktop</span></a></li>
+               <li class='last'><a href='http://localhost:4387/product/Details/4'><span>Labtop</span></a></li>
+            </ul>
+                 
+         </li>
+          <li class="has-sub"><a href="http://localhost:4387/Shop/ByCategory/4"><span>Music</span></a>
+              <ul>
+                  <li><a href="http://localhost:4387/product/Details/2"><span>iPod</span></a></li>
+                  <li><a href="http://localhost:4387/product/Details/1"><span>Beats by Dre</span></a></li>
+              </ul>
+                
+          </li>
+          <li class="has-sub"><a href="http://localhost:4387/images"><span>Images</span></a></li>
+
+      </ul>
+   </li>
+   <li class="last"><a href='https://www.linkedin.com/profile/view?id=338845163&trk=nav_responsive_tab_profile'><span>Contact</span></a></li>
+</ul>
+    <div class="cssmenu">
+    <a href="http://localhost:4387/post/Create">
+        <img src="http://files.campus.edublogs.org/blog.nus.edu.sg/dist/c/1/thumb/intro_crop.jpg" align="center" height="80" width="80" /></a>
+    <a href="http://localhost:4387/home/advertisement">
+        <img src="http://www.ieblues.org/images/Advertise.gif" align="center" height="80" width="80" /></a>
+    <a href="http://localhost:4387/home/videogames">
+        <img src="http://www.theandroidscloset.com/wp-content/uploads/2014/03/2051752971_1385077490.jpg" align="center" height="80" width="80" /></a>
+    <a href="http://localhost:4387/home/email">
+        <img src="http://www.jillkonrath.com/Portals/110248/images/email.png" align="center" height="80" width="80" /></a>
+</div>
+
+
+
+    <br />
+    <br />
+    <br />
+    <br />
+<body>
+   
+  <header>
+        <nav>
+          @Html.Action("navigation", "home")
+        </nav>
+    </header>
+
+
+    @RenderBody()
+
+    @Scripts.Render("~/bundles/jquery")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d22401d537084e6e9ab5d8e1e378fac1" Name="Diagram1" ZoomLevel="94">
+        <EntityTypeShape EntityType="CliffStoreModel.Image" Width="1.5" PointX="10.25" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CliffStoreModel.Product" Width="1.5" PointX="8" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="CliffStoreModel.Supplier" Width="1.5" PointX="5.75" PointY="10.375" IsExpanded="true" />
+        <AssociationConnector Association="CliffStoreModel.FK_Images_Products" ManuallyRouted="false" />
+        <AssociationConnector Association="CliffStoreModel.FK_Products_Suppliers" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="CliffStoreModel.Category" Width="1.5" PointX="5.75" PointY="7.375" />
+        <AssociationConnector Association="CliffStoreModel.FK_Categories_Categories" />
+        <AssociationConnector Association="CliffStoreModel.FK_Products_Categories" />
+        <EntityTypeShape EntityType="CliffStoreModel.Address" Width="1.5" PointX="3" PointY="1.75" />
+        <EntityTypeShape EntityType="CliffStoreModel.Customer" Width="1.5" PointX="0.75" PointY="2.375" />
+        <EntityTypeShape EntityType="CliffStoreModel.Order" Width="1.5" PointX="6" PointY="1.25" />
+        <EntityTypeShape EntityType="CliffStoreModel.OrderLine" Width="1.5" PointX="8.75" PointY="1.75" />
+        <EntityTypeShape EntityType="CliffStoreModel.Shipment" Width="1.5" PointX="9.125" PointY="11" />
+        <AssociationConnector Association="CliffStoreModel.FK_Order_Address" />
+        <AssociationConnector Association="CliffStoreModel.FK_Order_Address1" />
+        <AssociationConnector Association="CliffStoreModel.FK_Order_Customers" />
+        <AssociationConnector Association="CliffStoreModel.FK_Order_Shipments" />
+        <AssociationConnector Association="CliffStoreModel.FK_OrderLines_Order" />
+        <EntityTypeShape EntityType="CliffStoreModel.Author" Width="1.5" PointX="9.480935380552399" PointY="4.4575158527388776" />
+        <EntityTypeShape EntityType="CliffStoreModel.Comment" Width="1.5" PointX="12.125" PointY="2.875" />
+        <EntityTypeShape EntityType="CliffStoreModel.Post" Width="1.5" PointX="3.25" PointY="5.75" />
+        <AssociationConnector Association="CliffStoreModel.FK_Posts_Author" />
+        <AssociationConnector Association="CliffStoreModel.FK_Comments_Posts" />
+        <EntityTypeShape EntityType="CliffStoreModel.Payment" Width="1.5" PointX="12.5" PointY="6" />
+        <AssociationConnector Association="CliffStoreModel.FK_Order_Payments" />
+        <AssociationConnector Association="CliffStoreModel.FK_Address_Customers" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

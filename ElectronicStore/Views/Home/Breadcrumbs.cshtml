@@ -1,0 +1,20 @@
+﻿@model IEnumerable<ElectronicStore.Models.Category>
+
+<ul>
+    <li class="navBottom">
+        <a href="@Url.Action("index", "home")">Home</a>
+    </li>
+  
+    @foreach (var item in Model)
+    {
+        <li class="navBottom">
+            <a href="@Url.Action("ByCategory", "shop", new { id = item.categoriesID })">
+            @item.name
+            </a>
+       </li>
+        
+        
+    }
+  
+
+</ul>

@@ -1,0 +1,26 @@
+﻿@model IEnumerable<ElectronicStore.Models.Category>
+<ul>
+    @foreach (var category in Model)
+    {
+        if (category.subCategories.Any())
+        {
+        <li class="has-sub">
+            <a href="@Url.Action("ByCategory", "Shop", new { id = category.categoriesID})">
+                <span>@category.name</span>
+            </a>
+            @Html.Partial("Navigation", category.subCategories.OrderBy(x => x.name))
+            <br />
+            <br />
+        </li>
+        }
+        
+        else
+        {
+        <li>
+            <a href="@Url.Action("ByCategory", "Shop", new { id = category.categoriesID})">
+                <span>@category.name</span>
+            </a>
+        </li>
+        }
+    }
+</ul>

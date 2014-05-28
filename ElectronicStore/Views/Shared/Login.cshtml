@@ -1,0 +1,51 @@
+﻿
+@model ElectronicStore.Models.login
+
+@{
+    ViewBag.Title = "Login";
+}
+
+
+
+@if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
+{
+<div class="error">
+    @ViewBag.ErrorMessage
+</div>
+}
+
+
+
+  
+
+@using (Html.BeginForm("login", "account", FormMethod.Post)) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+ <div class="login">
+   
+            @Html.LabelFor(model => model.Username)
+            @Html.EditorFor(model => model.Username)
+            @Html.ValidationMessageFor(model => model.Username)
+           <body>Password</body>
+            @Html.EditorFor(model => model.password)
+            @Html.ValidationMessageFor(model => model.password)
+            @Html.Hidden("returnURL", Request.Url.LocalPath)
+
+        
+            <input type="submit" value="Login" />
+            <br />
+            <a style="text-align:right;" href="@Url.Action("Register", "account")">
+                Not registered, Click here!
+                <br />
+
+                </a>
+        </div>
+
+}
+
+   
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

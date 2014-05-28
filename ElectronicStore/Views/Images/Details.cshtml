@@ -1,0 +1,50 @@
+﻿@model ElectronicStore.Models.Image
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Image</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.imagesID)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.imagesID)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.name)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.imageURL)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.imageURL)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.description)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.description)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Product.name)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Product.name)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

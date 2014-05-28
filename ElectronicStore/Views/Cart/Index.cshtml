@@ -1,0 +1,22 @@
+﻿@model ElectronicStore.Models.Order
+@{
+    ViewBag.Title = "Index";
+}
+
+<div>
+    <div class="yourCartName">Name</div>
+    <div class="yourCartQuanity">Quanity</div>
+    <div class="yourCartPrice">Price</div>
+    <div class="yourCartSubTotal">SubTotal</div>
+    <div class="yourCartTotal">Total</div>
+
+</div>
+
+@foreach (var item in Model.OrderLines)
+{
+    <div class="yourCartName">@item.productName</div>
+    <div class="yourCartQuanity">@item.quanity</div>
+    <div class="yourCartPrice">@item.unitPrice</div>
+    <div class="yourCartSubTotal">@item.subTotal</div>
+   
+}

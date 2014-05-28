@@ -1,0 +1,1024 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="CliffStoreModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="CliffStoreModelStoreContainer">
+          <EntitySet Name="Address" EntityType="CliffStoreModel.Store.Address" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Author" EntityType="CliffStoreModel.Store.Author" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Categories" EntityType="CliffStoreModel.Store.Categories" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Comments" EntityType="CliffStoreModel.Store.Comments" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Customers" EntityType="CliffStoreModel.Store.Customers" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Images" EntityType="CliffStoreModel.Store.Images" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Order" EntityType="CliffStoreModel.Store.Order" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="OrderLines" EntityType="CliffStoreModel.Store.OrderLines" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Payments" EntityType="CliffStoreModel.Store.Payments" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Posts" EntityType="CliffStoreModel.Store.Posts" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Products" EntityType="CliffStoreModel.Store.Products" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Shipments" EntityType="CliffStoreModel.Store.Shipments" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Suppliers" EntityType="CliffStoreModel.Store.Suppliers" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_Address_Customers" Association="CliffStoreModel.Store.FK_Address_Customers">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="Address" EntitySet="Address" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Categories_Categories" Association="CliffStoreModel.Store.FK_Categories_Categories">
+            <End Role="Categories" EntitySet="Categories" />
+            <End Role="Categories1" EntitySet="Categories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Comments_Posts" Association="CliffStoreModel.Store.FK_Comments_Posts">
+            <End Role="Posts" EntitySet="Posts" />
+            <End Role="Comments" EntitySet="Comments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Images_Products" Association="CliffStoreModel.Store.FK_Images_Products">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="Images" EntitySet="Images" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Address" Association="CliffStoreModel.Store.FK_Order_Address">
+            <End Role="Address" EntitySet="Address" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Address1" Association="CliffStoreModel.Store.FK_Order_Address1">
+            <End Role="Address" EntitySet="Address" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Customers" Association="CliffStoreModel.Store.FK_Order_Customers">
+            <End Role="Customers" EntitySet="Customers" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Payments" Association="CliffStoreModel.Store.FK_Order_Payments">
+            <End Role="Payments" EntitySet="Payments" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Shipments" Association="CliffStoreModel.Store.FK_Order_Shipments">
+            <End Role="Shipments" EntitySet="Shipments" />
+            <End Role="Order" EntitySet="Order" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderLines_Order" Association="CliffStoreModel.Store.FK_OrderLines_Order">
+            <End Role="Order" EntitySet="Order" />
+            <End Role="OrderLines" EntitySet="OrderLines" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Posts_Author" Association="CliffStoreModel.Store.FK_Posts_Author">
+            <End Role="Author" EntitySet="Author" />
+            <End Role="Posts" EntitySet="Posts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Products_Categories" Association="CliffStoreModel.Store.FK_Products_Categories">
+            <End Role="Categories" EntitySet="Categories" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Products_Suppliers" Association="CliffStoreModel.Store.FK_Products_Suppliers">
+            <End Role="Suppliers" EntitySet="Suppliers" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Address">
+          <Key>
+            <PropertyRef Name="AddressesID" />
+          </Key>
+          <Property Name="AddressesID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="address1" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="address2" Type="nvarchar" MaxLength="100" />
+          <Property Name="city" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="state" Type="nvarchar" Nullable="false" MaxLength="2" />
+          <Property Name="postalCode" Type="nvarchar" Nullable="false" MaxLength="10" />
+          <Property Name="customerID" Type="int" />
+          <Property Name="type" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="notes" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Author">
+          <Key>
+            <PropertyRef Name="AuthorID" />
+          </Key>
+          <Property Name="AuthorID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="date" Type="datetime" Nullable="false" />
+          <Property Name="likes" Type="int" />
+          <Property Name="dislikes" Type="int" />
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="image" Type="nvarchar" MaxLength="350" />
+          <Property Name="bio" Type="nvarchar" Nullable="false" MaxLength="350" />
+        </EntityType>
+        <EntityType Name="Categories">
+          <Key>
+            <PropertyRef Name="categoriesID" />
+          </Key>
+          <Property Name="categoriesID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="parentID" Type="int" />
+        </EntityType>
+        <EntityType Name="Comments">
+          <Key>
+            <PropertyRef Name="CommentID" />
+          </Key>
+          <Property Name="CommentID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="author" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="date" Type="datetime" Nullable="false" />
+          <Property Name="body" Type="nvarchar" Nullable="false" MaxLength="350" />
+          <Property Name="views" Type="int" Nullable="false" />
+          <Property Name="likes" Type="int" />
+          <Property Name="dislikes" Type="int" />
+          <Property Name="PostID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Customers">
+          <Key>
+            <PropertyRef Name="customerID" />
+          </Key>
+          <Property Name="usersName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="customerID" Type="int" Nullable="false" />
+          <Property Name="firstName" Type="nvarchar" MaxLength="50" />
+          <Property Name="lastName" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Images">
+          <Key>
+            <PropertyRef Name="imagesID" />
+          </Key>
+          <Property Name="imagesID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="imageURL" Type="nvarchar" Nullable="false" MaxLength="250" />
+          <Property Name="description" Type="nvarchar" Nullable="false" MaxLength="250" />
+          <Property Name="productID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="OrdersID" />
+          </Key>
+          <Property Name="OrdersID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="shippingAddressID" Type="int" />
+          <Property Name="billingAddressID" Type="int" />
+          <Property Name="paymentID" Type="int" />
+          <Property Name="shippingID" Type="int" />
+          <Property Name="customerID" Type="int" />
+          <Property Name="totalPrice" Type="money" />
+          <Property Name="salesTax" Type="money" />
+          <Property Name="subTotal" Type="money" />
+          <Property Name="dateCreated" Type="datetime" Nullable="false" />
+          <Property Name="dateCompleted" Type="datetime" />
+          <Property Name="dateShipped" Type="datetime" />
+          <Property Name="shippingPrice" Type="int" />
+          <Property Name="status" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="OrderLines">
+          <Key>
+            <PropertyRef Name="orderLinesID" />
+          </Key>
+          <Property Name="orderLinesID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="quanity" Type="int" Nullable="false" />
+          <Property Name="productName" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="productID" Type="int" Nullable="false" />
+          <Property Name="unitPrice" Type="money" Nullable="false" />
+          <Property Name="subTotal" Type="money" Nullable="false" />
+          <Property Name="orderID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Payments">
+          <Key>
+            <PropertyRef Name="PaymentsID" />
+          </Key>
+          <Property Name="PaymentsID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ccNumber" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="cccvc" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="ccExpireMonth" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="ccExpireYear" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="ccName" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="confirmationNumber" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Posts">
+          <Key>
+            <PropertyRef Name="PostID" />
+          </Key>
+          <Property Name="PostID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="title" Type="nvarchar" Nullable="false" MaxLength="100" />
+          <Property Name="author" Type="nvarchar" Nullable="false" MaxLength="75" />
+          <Property Name="date" Type="datetime" Nullable="false" />
+          <Property Name="body" Type="text" Nullable="false" />
+          <Property Name="likes" Type="int" />
+          <Property Name="dislikes" Type="int" />
+          <Property Name="image" Type="nvarchar" MaxLength="300" />
+          <Property Name="AuthorID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Products">
+          <Key>
+            <PropertyRef Name="productID" />
+          </Key>
+          <Property Name="productID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="price" Type="int" Nullable="false" />
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="200" />
+          <Property Name="quantity" Type="int" Nullable="false" />
+          <Property Name="description" Type="nvarchar" Nullable="false" MaxLength="350" />
+          <Property Name="categoriesID" Type="int" Nullable="false" />
+          <Property Name="suppliersID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Shipments">
+          <Key>
+            <PropertyRef Name="ShippingID" />
+          </Key>
+          <Property Name="ShippingID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="trackingNumber" Type="nvarchar" MaxLength="100" />
+          <Property Name="carrier" Type="nvarchar" Nullable="false" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Suppliers">
+          <Key>
+            <PropertyRef Name="suppliersID" />
+          </Key>
+          <Property Name="suppliersID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="description" Type="nvarchar" Nullable="false" MaxLength="50" />
+          <Property Name="imageURl" Type="nvarchar" MaxLength="150" />
+          <Property Name="address" Type="nvarchar" Nullable="false" MaxLength="100" />
+        </EntityType>
+        <Association Name="FK_Address_Customers">
+          <End Role="Customers" Type="CliffStoreModel.Store.Customers" Multiplicity="0..1" />
+          <End Role="Address" Type="CliffStoreModel.Store.Address" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="customerID" />
+            </Principal>
+            <Dependent Role="Address">
+              <PropertyRef Name="customerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Categories_Categories">
+          <End Role="Categories" Type="CliffStoreModel.Store.Categories" Multiplicity="0..1" />
+          <End Role="Categories1" Type="CliffStoreModel.Store.Categories" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categories">
+              <PropertyRef Name="categoriesID" />
+            </Principal>
+            <Dependent Role="Categories1">
+              <PropertyRef Name="parentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Comments_Posts">
+          <End Role="Posts" Type="CliffStoreModel.Store.Posts" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Comments" Type="CliffStoreModel.Store.Comments" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Posts">
+              <PropertyRef Name="PostID" />
+            </Principal>
+            <Dependent Role="Comments">
+              <PropertyRef Name="PostID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Images_Products">
+          <End Role="Products" Type="CliffStoreModel.Store.Products" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Images" Type="CliffStoreModel.Store.Images" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="productID" />
+            </Principal>
+            <Dependent Role="Images">
+              <PropertyRef Name="productID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Address">
+          <End Role="Address" Type="CliffStoreModel.Store.Address" Multiplicity="0..1" />
+          <End Role="Order" Type="CliffStoreModel.Store.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Address">
+              <PropertyRef Name="AddressesID" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="shippingAddressID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Address1">
+          <End Role="Address" Type="CliffStoreModel.Store.Address" Multiplicity="0..1" />
+          <End Role="Order" Type="CliffStoreModel.Store.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Address">
+              <PropertyRef Name="AddressesID" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="billingAddressID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Customers">
+          <End Role="Customers" Type="CliffStoreModel.Store.Customers" Multiplicity="0..1" />
+          <End Role="Order" Type="CliffStoreModel.Store.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customers">
+              <PropertyRef Name="customerID" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="customerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Payments">
+          <End Role="Payments" Type="CliffStoreModel.Store.Payments" Multiplicity="0..1" />
+          <End Role="Order" Type="CliffStoreModel.Store.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Payments">
+              <PropertyRef Name="PaymentsID" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="paymentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Shipments">
+          <End Role="Shipments" Type="CliffStoreModel.Store.Shipments" Multiplicity="0..1" />
+          <End Role="Order" Type="CliffStoreModel.Store.Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Shipments">
+              <PropertyRef Name="ShippingID" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="shippingID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderLines_Order">
+          <End Role="Order" Type="CliffStoreModel.Store.Order" Multiplicity="1" />
+          <End Role="OrderLines" Type="CliffStoreModel.Store.OrderLines" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="OrdersID" />
+            </Principal>
+            <Dependent Role="OrderLines">
+              <PropertyRef Name="orderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Posts_Author">
+          <End Role="Author" Type="CliffStoreModel.Store.Author" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Posts" Type="CliffStoreModel.Store.Posts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Author">
+              <PropertyRef Name="AuthorID" />
+            </Principal>
+            <Dependent Role="Posts">
+              <PropertyRef Name="AuthorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Products_Categories">
+          <End Role="Categories" Type="CliffStoreModel.Store.Categories" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Products" Type="CliffStoreModel.Store.Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Categories">
+              <PropertyRef Name="categoriesID" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="categoriesID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Products_Suppliers">
+          <End Role="Suppliers" Type="CliffStoreModel.Store.Suppliers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Products" Type="CliffStoreModel.Store.Products" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Suppliers">
+              <PropertyRef Name="suppliersID" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="suppliersID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="GetProductsByCategoryID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="CategoryID" Type="int" Mode="In" />
+        </Function>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CliffStoreModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="CliffStoreEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Images" EntityType="CliffStoreModel.Image" />
+          <EntitySet Name="Products" EntityType="CliffStoreModel.Product" />
+          <EntitySet Name="Suppliers" EntityType="CliffStoreModel.Supplier" />
+          <AssociationSet Name="FK_Images_Products" Association="CliffStoreModel.FK_Images_Products">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="Images" EntitySet="Images" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Products_Suppliers" Association="CliffStoreModel.FK_Products_Suppliers">
+            <End Role="Suppliers" EntitySet="Suppliers" />
+            <End Role="Products" EntitySet="Products" />
+          </AssociationSet>
+          <EntitySet Name="Categories" EntityType="CliffStoreModel.Category" />
+          <AssociationSet Name="FK_Categories_Categories" Association="CliffStoreModel.FK_Categories_Categories">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="Category1" EntitySet="Categories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Products_Categories" Association="CliffStoreModel.FK_Products_Categories">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <FunctionImport Name="GetProductsByCategoryID" EntitySet="Products" ReturnType="Collection(CliffStoreModel.Product)">
+          <Parameter Name="CategoryID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="Addresses" EntityType="CliffStoreModel.Address" />
+          <EntitySet Name="Customers" EntityType="CliffStoreModel.Customer" />
+          <EntitySet Name="Orders" EntityType="CliffStoreModel.Order" />
+          <EntitySet Name="OrderLines" EntityType="CliffStoreModel.OrderLine" />
+          <EntitySet Name="Shipments" EntityType="CliffStoreModel.Shipment" />
+          <AssociationSet Name="FK_Order_Address" Association="CliffStoreModel.FK_Order_Address">
+            <End Role="Address" EntitySet="Addresses" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Address1" Association="CliffStoreModel.FK_Order_Address1">
+            <End Role="Address" EntitySet="Addresses" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Customers" Association="CliffStoreModel.FK_Order_Customers">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Shipments" Association="CliffStoreModel.FK_Order_Shipments">
+            <End Role="Shipment" EntitySet="Shipments" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_OrderLines_Order" Association="CliffStoreModel.FK_OrderLines_Order">
+            <End Role="Order" EntitySet="Orders" />
+            <End Role="OrderLine" EntitySet="OrderLines" />
+          </AssociationSet>
+          <EntitySet Name="Authors" EntityType="CliffStoreModel.Author" />
+          <EntitySet Name="Comments" EntityType="CliffStoreModel.Comment" />
+          <EntitySet Name="Posts" EntityType="CliffStoreModel.Post" />
+          <AssociationSet Name="FK_Posts_Author" Association="CliffStoreModel.FK_Posts_Author">
+            <End Role="Author" EntitySet="Authors" />
+            <End Role="Post" EntitySet="Posts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Comments_Posts" Association="CliffStoreModel.FK_Comments_Posts">
+            <End Role="Post" EntitySet="Posts" />
+            <End Role="Comment" EntitySet="Comments" />
+          </AssociationSet>
+          <EntitySet Name="Payments" EntityType="CliffStoreModel.Payment" />
+          <AssociationSet Name="FK_Order_Payments" Association="CliffStoreModel.FK_Order_Payments">
+            <End Role="Payment" EntitySet="Payments" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Address_Customers" Association="CliffStoreModel.FK_Address_Customers">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="Address" EntitySet="Addresses" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Image">
+          <Key>
+            <PropertyRef Name="imagesID" />
+          </Key>
+          <Property Name="imagesID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="imageURL" Type="String" MaxLength="250" Unicode="true" FixedLength="false" Nullable="false" />
+          <Property Name="description" Type="String" Nullable="false" MaxLength="250" Unicode="true" FixedLength="false" />
+          <Property Name="productID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Product" Relationship="CliffStoreModel.FK_Images_Products" FromRole="Images" ToRole="Products" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="productID" />
+          </Key>
+          <Property Name="productID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="price" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="200" Unicode="true" FixedLength="false" />
+          <Property Name="quantity" Type="Int32" Nullable="false" />
+          <Property Name="description" Type="String" Nullable="false" MaxLength="350" Unicode="true" FixedLength="false" />
+          <Property Name="categoriesID" Type="Int32" Nullable="false" />
+          <Property Name="suppliersID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Images" Relationship="CliffStoreModel.FK_Images_Products" FromRole="Products" ToRole="Images" />
+          <NavigationProperty Name="Supplier" Relationship="CliffStoreModel.FK_Products_Suppliers" FromRole="Products" ToRole="Suppliers" />
+          <NavigationProperty Name="Category" Relationship="CliffStoreModel.FK_Products_Categories" FromRole="Product" ToRole="Category" />
+        </EntityType>
+        <EntityType Name="Supplier">
+          <Key>
+            <PropertyRef Name="suppliersID" />
+          </Key>
+          <Property Name="suppliersID" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="description" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+          <Property Name="imageURl" Type="String" MaxLength="150" Unicode="true" FixedLength="false" />
+          <Property Name="address" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="Products" Relationship="CliffStoreModel.FK_Products_Suppliers" FromRole="Suppliers" ToRole="Products" />
+        </EntityType>
+        <Association Name="FK_Images_Products">
+          <End Role="Products" Type="CliffStoreModel.Product" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Images" Type="CliffStoreModel.Image" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="productID" />
+            </Principal>
+            <Dependent Role="Images">
+              <PropertyRef Name="productID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Products_Suppliers">
+          <End Role="Suppliers" Type="CliffStoreModel.Supplier" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Products" Type="CliffStoreModel.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Suppliers">
+              <PropertyRef Name="suppliersID" />
+            </Principal>
+            <Dependent Role="Products">
+              <PropertyRef Name="suppliersID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="categoriesID" />
+          </Key>
+          <Property Type="Int32" Name="categoriesID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="name" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="parentID" />
+          <NavigationProperty Name="subCategories" Relationship="CliffStoreModel.FK_Categories_Categories" FromRole="Category" ToRole="Category1" />
+          <NavigationProperty Name="parentCategory" Relationship="CliffStoreModel.FK_Categories_Categories" FromRole="Category1" ToRole="Category" />
+          <NavigationProperty Name="Products" Relationship="CliffStoreModel.FK_Products_Categories" FromRole="Category" ToRole="Product" />
+        </EntityType>
+        <Association Name="FK_Categories_Categories">
+          <End Type="CliffStoreModel.Category" Role="Category" Multiplicity="0..1" />
+          <End Type="CliffStoreModel.Category" Role="Category1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="categoriesID" />
+            </Principal>
+            <Dependent Role="Category1">
+              <PropertyRef Name="parentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Products_Categories">
+          <End Type="CliffStoreModel.Category" Role="Category" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="CliffStoreModel.Product" Role="Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="categoriesID" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="categoriesID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="GetProductsByCategoryID_Result">
+          <Property Type="Int32" Name="productID" Nullable="false" />
+          <Property Type="Int32" Name="price" Nullable="false" />
+          <Property Type="String" Name="name" Nullable="false" MaxLength="200" />
+          <Property Type="Int32" Name="quantity" Nullable="false" />
+          <Property Type="String" Name="description" Nullable="false" MaxLength="350" />
+          <Property Type="Int32" Name="categoriesID" Nullable="false" />
+          <Property Type="Int32" Name="suppliersID" Nullable="false" />
+        </ComplexType>
+        <EntityType Name="Address">
+          <Key>
+            <PropertyRef Name="AddressesID" />
+          </Key>
+          <Property Type="Int32" Name="AddressesID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="name" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="address1" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="address2" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="city" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="state" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="postalCode" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="customerID" />
+          <Property Type="String" Name="type" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="notes" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Orders" Relationship="CliffStoreModel.FK_Order_Address" FromRole="Address" ToRole="Order" />
+          <NavigationProperty Name="Orders1" Relationship="CliffStoreModel.FK_Order_Address1" FromRole="Address" ToRole="Order" />
+          <NavigationProperty Name="Customer" Relationship="CliffStoreModel.FK_Address_Customers" FromRole="Address" ToRole="Customer" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="customerID" />
+          </Key>
+          <Property Type="String" Name="usersName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="customerID" Nullable="false" />
+          <Property Type="String" Name="firstName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="lastName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Orders" Relationship="CliffStoreModel.FK_Order_Customers" FromRole="Customer" ToRole="Order" />
+          <NavigationProperty Name="Addresses" Relationship="CliffStoreModel.FK_Address_Customers" FromRole="Customer" ToRole="Address" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="OrdersID" />
+          </Key>
+          <Property Type="Int32" Name="OrdersID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="shippingAddressID" />
+          <Property Type="Int32" Name="billingAddressID" />
+          <Property Type="Int32" Name="paymentID" />
+          <Property Type="Int32" Name="shippingID" />
+          <Property Type="Int32" Name="customerID" />
+          <Property Type="Decimal" Name="totalPrice" Precision="19" Scale="4" />
+          <Property Type="Decimal" Name="salesTax" Precision="19" Scale="4" />
+          <Property Type="Decimal" Name="subTotal" Precision="19" Scale="4" />
+          <Property Type="DateTime" Name="dateCreated" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="dateCompleted" Precision="3" />
+          <Property Type="DateTime" Name="dateShipped" Precision="3" />
+          <Property Type="Int32" Name="shippingPrice" />
+          <Property Type="String" Name="status" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="shippingAddress" Relationship="CliffStoreModel.FK_Order_Address" FromRole="Order" ToRole="Address" />
+          <NavigationProperty Name="billingAddress" Relationship="CliffStoreModel.FK_Order_Address1" FromRole="Order" ToRole="Address" />
+          <NavigationProperty Name="Customer" Relationship="CliffStoreModel.FK_Order_Customers" FromRole="Order" ToRole="Customer" />
+          <NavigationProperty Name="Shipment" Relationship="CliffStoreModel.FK_Order_Shipments" FromRole="Order" ToRole="Shipment" />
+          <NavigationProperty Name="OrderLines" Relationship="CliffStoreModel.FK_OrderLines_Order" FromRole="Order" ToRole="OrderLine" />
+          <NavigationProperty Name="Payment" Relationship="CliffStoreModel.FK_Order_Payments" FromRole="Order" ToRole="Payment" />
+        </EntityType>
+        <EntityType Name="OrderLine">
+          <Key>
+            <PropertyRef Name="orderLinesID" />
+          </Key>
+          <Property Type="Int32" Name="orderLinesID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="Int32" Name="quanity" Nullable="false" />
+          <Property Type="String" Name="productName" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="productID" Nullable="false" />
+          <Property Type="Decimal" Name="unitPrice" Nullable="false" Precision="19" Scale="4" />
+          <Property Type="Decimal" Name="subTotal" Nullable="false" Precision="19" Scale="4" />
+          <Property Type="Int32" Name="orderID" Nullable="false" />
+          <NavigationProperty Name="Order" Relationship="CliffStoreModel.FK_OrderLines_Order" FromRole="OrderLine" ToRole="Order" />
+        </EntityType>
+        <EntityType Name="Shipment">
+          <Key>
+            <PropertyRef Name="ShippingID" />
+          </Key>
+          <Property Type="Int32" Name="ShippingID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="trackingNumber" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="carrier" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Orders" Relationship="CliffStoreModel.FK_Order_Shipments" FromRole="Shipment" ToRole="Order" />
+        </EntityType>
+        <Association Name="FK_Order_Address">
+          <End Type="CliffStoreModel.Address" Role="Address" Multiplicity="0..1" />
+          <End Type="CliffStoreModel.Order" Role="Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Address">
+              <PropertyRef Name="AddressesID" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="shippingAddressID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Address1">
+          <End Type="CliffStoreModel.Address" Role="Address" Multiplicity="0..1" />
+          <End Type="CliffStoreModel.Order" Role="Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Address">
+              <PropertyRef Name="AddressesID" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="billingAddressID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Customers">
+          <End Type="CliffStoreModel.Customer" Role="Customer" Multiplicity="0..1" />
+          <End Type="CliffStoreModel.Order" Role="Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="customerID" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="customerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Shipments">
+          <End Type="CliffStoreModel.Shipment" Role="Shipment" Multiplicity="0..1" />
+          <End Type="CliffStoreModel.Order" Role="Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Shipment">
+              <PropertyRef Name="ShippingID" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="shippingID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_OrderLines_Order">
+          <End Type="CliffStoreModel.Order" Role="Order" Multiplicity="1" />
+          <End Type="CliffStoreModel.OrderLine" Role="OrderLine" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Order">
+              <PropertyRef Name="OrdersID" />
+            </Principal>
+            <Dependent Role="OrderLine">
+              <PropertyRef Name="orderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Author">
+          <Key>
+            <PropertyRef Name="AuthorID" />
+          </Key>
+          <Property Type="Int32" Name="AuthorID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="DateTime" Name="date" Nullable="false" Precision="3" />
+          <Property Type="Int32" Name="likes" />
+          <Property Type="Int32" Name="dislikes" />
+          <Property Type="String" Name="name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="image" MaxLength="350" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="bio" Nullable="false" MaxLength="350" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Posts" Relationship="CliffStoreModel.FK_Posts_Author" FromRole="Author" ToRole="Post" />
+        </EntityType>
+        <EntityType Name="Comment">
+          <Key>
+            <PropertyRef Name="CommentID" />
+          </Key>
+          <Property Type="Int32" Name="CommentID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="author" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="date" Nullable="false" Precision="3" />
+          <Property Type="String" Name="body" Nullable="false" MaxLength="350" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="views" Nullable="false" />
+          <Property Type="Int32" Name="likes" />
+          <Property Type="Int32" Name="dislikes" />
+          <Property Type="Int32" Name="PostID" Nullable="false" />
+          <NavigationProperty Name="Post" Relationship="CliffStoreModel.FK_Comments_Posts" FromRole="Comment" ToRole="Post" />
+        </EntityType>
+        <EntityType Name="Post">
+          <Key>
+            <PropertyRef Name="PostID" />
+          </Key>
+          <Property Type="Int32" Name="PostID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="title" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="author" Nullable="false" MaxLength="75" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="date" Nullable="false" Precision="3" />
+          <Property Type="String" Name="body" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Type="Int32" Name="likes" />
+          <Property Type="Int32" Name="dislikes" />
+          <Property Type="String" Name="image" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="AuthorID" Nullable="false" />
+          <NavigationProperty Name="Author1" Relationship="CliffStoreModel.FK_Posts_Author" FromRole="Post" ToRole="Author" />
+          <NavigationProperty Name="Comments" Relationship="CliffStoreModel.FK_Comments_Posts" FromRole="Post" ToRole="Comment" />
+        </EntityType>
+        <Association Name="FK_Posts_Author">
+          <End Type="CliffStoreModel.Author" Role="Author" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="CliffStoreModel.Post" Role="Post" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Author">
+              <PropertyRef Name="AuthorID" />
+            </Principal>
+            <Dependent Role="Post">
+              <PropertyRef Name="AuthorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Comments_Posts">
+          <End Type="CliffStoreModel.Post" Role="Post" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="CliffStoreModel.Comment" Role="Comment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Post">
+              <PropertyRef Name="PostID" />
+            </Principal>
+            <Dependent Role="Comment">
+              <PropertyRef Name="PostID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Payment">
+          <Key>
+            <PropertyRef Name="PaymentsID" />
+          </Key>
+          <Property Type="Int32" Name="PaymentsID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="ccNumber" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="cccvc" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ccExpireMonth" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ccExpireYear" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ccName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="confirmationNumber" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Orders" Relationship="CliffStoreModel.FK_Order_Payments" FromRole="Payment" ToRole="Order" />
+        </EntityType>
+        <Association Name="FK_Order_Payments">
+          <End Type="CliffStoreModel.Payment" Role="Payment" Multiplicity="0..1" />
+          <End Type="CliffStoreModel.Order" Role="Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Payment">
+              <PropertyRef Name="PaymentsID" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="paymentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Address_Customers">
+          <End Type="CliffStoreModel.Customer" Role="Customer" Multiplicity="0..1" />
+          <End Type="CliffStoreModel.Address" Role="Address" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="customerID" />
+            </Principal>
+            <Dependent Role="Address">
+              <PropertyRef Name="customerID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CliffStoreModelStoreContainer" CdmEntityContainer="CliffStoreEntities">
+          <EntitySetMapping Name="Images">
+            <EntityTypeMapping TypeName="CliffStoreModel.Image">
+              <MappingFragment StoreEntitySet="Images">
+                <ScalarProperty Name="imagesID" ColumnName="imagesID" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="imageURL" ColumnName="imageURL" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="productID" ColumnName="productID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="CliffStoreModel.Product">
+              <MappingFragment StoreEntitySet="Products">
+                <ScalarProperty Name="productID" ColumnName="productID" />
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="categoriesID" ColumnName="categoriesID" />
+                <ScalarProperty Name="suppliersID" ColumnName="suppliersID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Suppliers">
+            <EntityTypeMapping TypeName="CliffStoreModel.Supplier">
+              <MappingFragment StoreEntitySet="Suppliers">
+                <ScalarProperty Name="suppliersID" ColumnName="suppliersID" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="imageURl" ColumnName="imageURl" />
+                <ScalarProperty Name="address" ColumnName="address" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="CliffStoreModel.Category">
+              <MappingFragment StoreEntitySet="Categories">
+                <ScalarProperty Name="parentID" ColumnName="parentID" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="categoriesID" ColumnName="categoriesID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="GetProductsByCategoryID" FunctionName="CliffStoreModel.Store.GetProductsByCategoryID">
+          </FunctionImportMapping>
+          <EntitySetMapping Name="Addresses">
+            <EntityTypeMapping TypeName="CliffStoreModel.Address">
+              <MappingFragment StoreEntitySet="Address">
+                <ScalarProperty Name="notes" ColumnName="notes" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="customerID" ColumnName="customerID" />
+                <ScalarProperty Name="postalCode" ColumnName="postalCode" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="city" ColumnName="city" />
+                <ScalarProperty Name="address2" ColumnName="address2" />
+                <ScalarProperty Name="address1" ColumnName="address1" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="AddressesID" ColumnName="AddressesID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="CliffStoreModel.Customer">
+              <MappingFragment StoreEntitySet="Customers">
+                <ScalarProperty Name="lastName" ColumnName="lastName" />
+                <ScalarProperty Name="firstName" ColumnName="firstName" />
+                <ScalarProperty Name="customerID" ColumnName="customerID" />
+                <ScalarProperty Name="usersName" ColumnName="usersName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orders">
+            <EntityTypeMapping TypeName="CliffStoreModel.Order">
+              <MappingFragment StoreEntitySet="Order">
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="shippingPrice" ColumnName="shippingPrice" />
+                <ScalarProperty Name="dateShipped" ColumnName="dateShipped" />
+                <ScalarProperty Name="dateCompleted" ColumnName="dateCompleted" />
+                <ScalarProperty Name="dateCreated" ColumnName="dateCreated" />
+                <ScalarProperty Name="subTotal" ColumnName="subTotal" />
+                <ScalarProperty Name="salesTax" ColumnName="salesTax" />
+                <ScalarProperty Name="totalPrice" ColumnName="totalPrice" />
+                <ScalarProperty Name="customerID" ColumnName="customerID" />
+                <ScalarProperty Name="shippingID" ColumnName="shippingID" />
+                <ScalarProperty Name="paymentID" ColumnName="paymentID" />
+                <ScalarProperty Name="billingAddressID" ColumnName="billingAddressID" />
+                <ScalarProperty Name="shippingAddressID" ColumnName="shippingAddressID" />
+                <ScalarProperty Name="OrdersID" ColumnName="OrdersID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OrderLines">
+            <EntityTypeMapping TypeName="CliffStoreModel.OrderLine">
+              <MappingFragment StoreEntitySet="OrderLines">
+                <ScalarProperty Name="orderID" ColumnName="orderID" />
+                <ScalarProperty Name="subTotal" ColumnName="subTotal" />
+                <ScalarProperty Name="unitPrice" ColumnName="unitPrice" />
+                <ScalarProperty Name="productID" ColumnName="productID" />
+                <ScalarProperty Name="productName" ColumnName="productName" />
+                <ScalarProperty Name="quanity" ColumnName="quanity" />
+                <ScalarProperty Name="orderLinesID" ColumnName="orderLinesID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Shipments">
+            <EntityTypeMapping TypeName="CliffStoreModel.Shipment">
+              <MappingFragment StoreEntitySet="Shipments">
+                <ScalarProperty Name="carrier" ColumnName="carrier" />
+                <ScalarProperty Name="trackingNumber" ColumnName="trackingNumber" />
+                <ScalarProperty Name="ShippingID" ColumnName="ShippingID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Authors">
+            <EntityTypeMapping TypeName="CliffStoreModel.Author">
+              <MappingFragment StoreEntitySet="Author">
+                <ScalarProperty Name="bio" ColumnName="bio" />
+                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="dislikes" ColumnName="dislikes" />
+                <ScalarProperty Name="likes" ColumnName="likes" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="AuthorID" ColumnName="AuthorID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Comments">
+            <EntityTypeMapping TypeName="CliffStoreModel.Comment">
+              <MappingFragment StoreEntitySet="Comments">
+                <ScalarProperty Name="PostID" ColumnName="PostID" />
+                <ScalarProperty Name="dislikes" ColumnName="dislikes" />
+                <ScalarProperty Name="likes" ColumnName="likes" />
+                <ScalarProperty Name="views" ColumnName="views" />
+                <ScalarProperty Name="body" ColumnName="body" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="author" ColumnName="author" />
+                <ScalarProperty Name="CommentID" ColumnName="CommentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Posts">
+            <EntityTypeMapping TypeName="CliffStoreModel.Post">
+              <MappingFragment StoreEntitySet="Posts">
+                <ScalarProperty Name="AuthorID" ColumnName="AuthorID" />
+                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="dislikes" ColumnName="dislikes" />
+                <ScalarProperty Name="likes" ColumnName="likes" />
+                <ScalarProperty Name="body" ColumnName="body" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="author" ColumnName="author" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="PostID" ColumnName="PostID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Payments">
+            <EntityTypeMapping TypeName="CliffStoreModel.Payment">
+              <MappingFragment StoreEntitySet="Payments">
+                <ScalarProperty Name="confirmationNumber" ColumnName="confirmationNumber" />
+                <ScalarProperty Name="ccName" ColumnName="ccName" />
+                <ScalarProperty Name="ccExpireYear" ColumnName="ccExpireYear" />
+                <ScalarProperty Name="ccExpireMonth" ColumnName="ccExpireMonth" />
+                <ScalarProperty Name="cccvc" ColumnName="cccvc" />
+                <ScalarProperty Name="ccNumber" ColumnName="ccNumber" />
+                <ScalarProperty Name="PaymentsID" ColumnName="PaymentsID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
